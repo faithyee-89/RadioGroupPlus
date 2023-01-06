@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion buildVersion.compileSdk
+    compileSdk 32
 
     defaultConfig {
-        minSdkVersion buildVersion.minSdk
-        targetSdkVersion buildVersion.compileSdk
-        versionCode releaseVersion.code
-        versionName releaseVersion.name
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -18,7 +18,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation "junit:junit:${depVersions.testLibs.junit}"
-    implementation "com.android.support:appcompat-v7:${depVersions.googleLibs.support}"
+    api fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    testImplementation "junit:junit:4.13.2"
+    api "androidx.appcompat:appcompat:1.5.1"
 }

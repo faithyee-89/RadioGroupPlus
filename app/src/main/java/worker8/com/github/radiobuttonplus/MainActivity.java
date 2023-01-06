@@ -1,12 +1,11 @@
 package worker8.com.github.radiobuttonplus;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import worker8.com.github.radiogroupplus.RadioGroupPlus;
 
@@ -17,16 +16,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        mRadioGroupPlus = (RadioGroupPlus) findViewById(R.id.radio_group_plus);
-        mRadioGroupPlus.setOnCheckedChangeListener(new RadioGroupPlus.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroupPlus radioGroupPlus, @IdRes int i) {
-                Log.i("RadioGroupPlus", "onCheckedChanged:");
-                // Add your logic here
-            }
+        mRadioGroupPlus = findViewById(R.id.radio_group_plus);
+        mRadioGroupPlus.setOnCheckedChangeListener((radioGroupPlus, i) -> {
+            Log.i("RadioGroupPlus", "onCheckedChanged:");
         });
 
     }

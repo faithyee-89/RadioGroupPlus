@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion buildVersion.compileSdk
+    compileSdk 32
 
     defaultConfig {
         applicationId "worker8.com.github.radiobuttonplus"
-        minSdkVersion buildVersion.minSdk
-        targetSdkVersion buildVersion.compileSdk
-        versionCode releaseVersion.code
-        versionName releaseVersion.name
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -19,9 +19,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation "junit:junit:${depVersions.testLibs.junit}"
-    implementation "com.android.support:appcompat-v7:${depVersions.googleLibs.support}"
-    implementation "com.android.support:design:${depVersions.googleLibs.support}"
-    implementation project(':radiogroupplus')
+    api fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    testImplementation "junit:junit:4.13.2"
+    api "androidx.appcompat:appcompat:1.5.1"
+    api "androidx.constraintlayout:constraintlayout:2.1.4"
+    api "com.google.android.material:material:1.7.0"
+    api project(':radiogroupplus')
 }
